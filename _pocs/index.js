@@ -1,12 +1,12 @@
 import createFormatters from './formatters'
 
-let installed = false
+let reasonFormatterInstalled = false
 
 function install() {
   const gw = typeof window === 'undefined' ? global : window
 
   // Don't install more than once
-  if (installed === true) {
+  if (reasonFormatterInstalled === true) {
     return
   }
 
@@ -16,7 +16,7 @@ function install() {
 
   gw.devtoolsFormatters.push(RecordFormatter, ListFormatter)
 
-  installed = true
+  reasonFormatterInstalled = true
 }
 
 module.exports = install

@@ -7,7 +7,8 @@ function log(stuff) {
 
 log('<br/>')
 
-function tests() { // eslint-disable-line
+function tests() {
+  // eslint-disable-line
   window.devtoolsFormatters.push({
     header(obj) {
       // if (obj.__IS_NESTED__) return formatters.formatHeaderAsTitle(obj.value);

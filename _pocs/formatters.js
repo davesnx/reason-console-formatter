@@ -1,13 +1,43 @@
 const listStyle = {
-  style:
-    'list-style-type: none; padding: 0; margin: 0 0 0 12px; font-style: normal'
+  style: `
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 12px;
+    font-style: normal;
+  `
 }
-const immutableNameStyle = { style: 'color: rgb(232,98,0)' }
-const keyStyle = { style: 'color: #881391' }
-const defaultValueKeyStyle = { style: 'color: #777' }
-const alteredValueKeyStyle = { style: 'color: #881391; font-weight: bolder' }
-const inlineValuesStyle = { style: 'color: #777; font-style: italic' }
-const nullStyle = { style: 'color: #777' }
+const immutableNameStyle = {
+  style: `
+    color: rgb(232,98,0);
+  `
+}
+const keyStyle = {
+  style: `
+    color: #881391;
+  `
+}
+const defaultValueKeyStyle = {
+  style: `
+    color: #777;
+  `
+}
+const alteredValueKeyStyle = {
+  style: `
+    color: #881391;
+    font-weight: bolder;
+  `
+}
+const inlineValuesStyle = {
+  style: `
+    color: #777;
+    font-style: italic;
+  `
+}
+const nullStyle = {
+  style: `
+    color: #777;
+  `
+}
 
 function createFormatters() {
   const isRecord = maybeRecord => {
