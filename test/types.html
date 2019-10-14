@@ -1,0 +1,28 @@
+<head>
+    <title>Formatter Extension Test Page</title>
+    <script>
+        console.time("Load formatters")
+    </script>
+</head>
+
+<body>
+    Open the console and check that everything looks alright.
+</body>
+
+<!-- Load immutable globally in here, since I want the extension code and the test code to use different instances of Immutable (so we don't rely on instanceof which fail on a normal page when comparing between different Immutable instances) -->
+<script src="test.js"></script>
+
+<script>
+    function checkIfLoaded(){
+        if (window.__ReasonMLFormattersLoaded !== undefined){
+            console.timeEnd("Load formatters");
+            tests();
+        } else {
+            setTimeout(function(){
+                checkIfLoaded();
+            }, 1)
+        }
+    }
+
+    checkIfLoaded();
+</script>
