@@ -1,10 +1,10 @@
-# Reason Formatter (as a Chrome Extension)
+# ReasonML Console Formatter
 
 ![](./docs/demo.png)
 
 Status: ALPHA
 
-Transforms ReasonML types objects to a more readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html). No more `[1, [2, [3, [4, [5, 0]]]]]` and nested structures.
+Transforms ReasonML types objects to a more readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html). Pretty print on nested structures and no more `[1, [2, [3, [4, [5, 0]]]]]`.
 
 More information about the Chrome Extension comming soon...
 
@@ -31,14 +31,14 @@ Currently supported:
 - [ ] Working with `"bsc-flags": ["-bs-g"]`. [bucklescript/better-data-structures-printing-debug-mode](https://bucklescript.github.io/docs/en/better-data-structures-printing-debug-mode)
 - [Miss some?](https://github.com/davesnx/reason-formatter/issues/new)
 
-## Running the code locally
+## Development
 
-1. `npm install`
-2. `npm run dev`
-3. Load the "/extension" directory as an unpacked Chrome extension
-4. Open "/test-page/index.html" to check everything looks as expected
-
-Make sure to reload the extension after any changes.
+1. Clone this repo
+2. Go to chrome extensions chrome://extensions
+3. Click on load unpacked extension and select the "/extension" directory of the cloned repo
+4. `npm install`
+5. `npm run dev`
+6. Open "/test/index.html" (`open /test/index.html`) to check run some tests
 
 ## Credit
 
