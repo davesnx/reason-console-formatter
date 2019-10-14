@@ -1,8 +1,8 @@
 {
-  "name": "Immutable.js Object Formatter",
-  "short_name": "Immutable.js Object Formatter",
-  "description": "Makes Immutable JS objects more readable when they are logged to the console.",
-  "version": "1.9.2",
+  "name": "ReasonML Formatter",
+  "short_name": "ReasonML Formatter",
+  "description": "Makes ReasonML types more readable when they are logged to the console.",
+  "version": "0.0.1",
   "manifest_version": 2,
   "minimum_chrome_version": "48.0",
   "content_scripts": [

@@ -4,7 +4,7 @@ var timesExtensionHasLoaded = getAndIncrementTimesExtensionHasLoaded()
 var moreTimes = 4 - (timesExtensionHasLoaded - 1)
 if (moreTimes >= 0) {
   var message =
-    "Immutable Object Formatter: Make sure to check 'Enable custom formatters' in the DevTools settings."
+    "Reason Formatter: Make sure to check 'Enable custom formatters' in the DevTools settings."
   message +=
     ' (This message will show ' +
     moreTimes +

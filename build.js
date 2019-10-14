@@ -1,9 +1,9 @@
-var fs = require('fs')
+const fs = require('fs')
 
-var template = fs.readFileSync('./content-script-template.js').toString()
-var bundle = fs.readFileSync('./dist/bundle.js').toString()
+const template = fs.readFileSync('./content-script-template.js').toString()
+const bundle = fs.readFileSync('./dist/bundle.js').toString()
 
-var contentScript = template.replace(
+const contentScript = template.replace(
   '/* SCRIPT_TEXT_CONTENT */',
   'decodeURI("' + encodeURI(bundle) + '")'
 )
