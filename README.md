@@ -1,8 +1,8 @@
 # Reason Formatter (as a Chrome Extension)
 
-Transforms ReasonML types objects to a more readable format when they are logged to the console.
+Transforms ReasonML types objects to a more readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html).
 
-Comming soon... [Install the Chrome Extension](https://chrome.google.com/webstore/detail/immutablejs-object-format/hgldghadipiblonfkkicmgcbbijnpeog)
+More information about the Chrome Extension comming soon...
 
 The Chrome extension will only work if you **enable Custom Formatters** in the DevTools settings.
 
@@ -19,10 +19,12 @@ The Chrome extension will only work if you **enable Custom Formatters** in the D
 Detects at runtime what kind of data structures are you logging into the console and maps them to ReasonML types.
 
 Currently supported:
-- Lists
-- Records
-- Nested
--
+- [x] Lists
+- [x] Records
+- [x] Nested
+- [ ] Option
+- [ ] Bool
+- [ ] Working with `"bsc-flags": ["-bs-g"]`. [bucklescript/better-data-structures-printing-debug-mode](https://bucklescript.github.io/docs/en/better-data-structures-printing-debug-mode)
 
 ## Running the code locally
 
