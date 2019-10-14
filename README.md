@@ -1,5 +1,7 @@
 # Reason Formatter (as a Chrome Extension)
 
+![](./docs/demo.png)
+
 Transforms ReasonML types objects to a more readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html).
 
 More information about the Chrome Extension comming soon...
@@ -8,11 +10,11 @@ The Chrome extension will only work if you **enable Custom Formatters** in the D
 
 ### Step 1: Open DevTools settings
 
-![](https://user-images.githubusercontent.com/1303660/36625688-48c2160e-195f-11e8-9a5f-ba9ea8553b06.png)
+![](./docs/chrome-settings.png)
 
 ### Step 2: Enable custom formatters
 
-![](https://cloud.githubusercontent.com/assets/1303660/18231278/a271ede6-72ad-11e6-8623-367f3e8eb686.png)
+![](./docs/chrome-enable-custom-formatters.png)
 
 ## How it works
 
