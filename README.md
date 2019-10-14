@@ -2,7 +2,9 @@
 
 ![](./docs/demo.png)
 
-Transforms ReasonML types objects to a more readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html).
+Status: ALPHA
+
+Transforms ReasonML types objects to a more readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html). No more `[1, [2, [3, [4, [5, 0]]]]]` and nested structures.
 
 More information about the Chrome Extension comming soon...
 
@@ -21,12 +23,13 @@ The Chrome extension will only work if you **enable Custom Formatters** in the D
 Detects at runtime what kind of data structures are you logging into the console and maps them to ReasonML types.
 
 Currently supported:
+- [x] Nested structures
 - [x] Lists
-- [x] Records
-- [x] Nested
+- [x] Records (Currently waiting for BuckleScript to treat Records as JS Objects)
 - [ ] Option
 - [ ] Bool
 - [ ] Working with `"bsc-flags": ["-bs-g"]`. [bucklescript/better-data-structures-printing-debug-mode](https://bucklescript.github.io/docs/en/better-data-structures-printing-debug-mode)
+- [Miss some?](https://github.com/davesnx/reason-formatter/issues/new)
 
 ## Running the code locally
 

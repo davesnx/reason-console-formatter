@@ -16,7 +16,7 @@
     function checkIfLoaded(){
         if (window.__ReasonMLFormattersLoaded !== undefined){
             console.timeEnd("Load formatters");
-            tests();
+            runTests();
         } else {
             setTimeout(function(){
                 checkIfLoaded();
