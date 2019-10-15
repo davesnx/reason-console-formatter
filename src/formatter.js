@@ -25,7 +25,7 @@ const isList = data => {
 
 const isRecord = data => {
   return (
-    data === Object(data) &&
+    data instanceof Object &&
     Object.prototype.toString.call(data) !== '[object Array]'
   )
 }
@@ -58,15 +58,15 @@ const collections = [
     renderInlineFull: renderInlineFullList,
     renderInlinePartial: renderTitleList,
     renderTitle: renderTitleList
-  },
-  {
-    name: () => 'Record',
-    validate: isRecord,
-    renderBody: renderRecordBody,
-    renderInlineFull: renderInlineFullMap,
-    renderInlinePartial: renderTitleMap,
-    renderTitle: renderTitleMap
   }
+  // {
+  //   name: () => 'Record',
+  //   validate: isRecord,
+  //   renderBody: renderRecordBody,
+  //   renderInlineFull: renderInlineFullMap,
+  //   renderInlinePartial: renderTitleMap,
+  //   renderTitle: renderTitleMap
+  // }
 ]
 
 const titleStyles = `

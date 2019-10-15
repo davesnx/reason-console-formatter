@@ -21,7 +21,7 @@
 		on project page
 	</p>
 
-	<p>Open Console (F12) to see result of this code:</p>
+	<p>Open Console (F12) to see result of this code: (refresh if the extension did not load yet)</p>
 	<pre><code id="js-code"></code></pre>
 </body>
 
@@ -40,17 +40,8 @@
 			a: 99,
 			record: 'Yes!'
 		};
-		const listNested = [{
-				a: 1
-			},
-			[{
-					b: 1
-				},
-				[{
-					c: 1
-				}, 0]
-			]
-		];
+
+		const listNested = [{ a: 1 }, [{ b: 1 }, [{ c: 1 }, 0]]];
 
 		console.log(list);
 		console.log(record);
@@ -62,8 +53,10 @@
 <script>
 	const script = document.createElement('script');
 	script.type = 'text/javascript';
+	console.log(window.devtoolsFormatters)
 	script.onload = function () {
 		runTests()
+		console.log(window.devtoolsFormatters)
 	}
 	script.src = "../dist/bundle.js"
 
