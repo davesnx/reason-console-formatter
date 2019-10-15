@@ -16,7 +16,7 @@
   "devtools_page": "devtool.html",
   "permissions": ["http://*/*", "http://*/*", "file://*/*"],
   "icons": {
-    "128": "icon-128.png"
+    "128": "icon.png"
   },
   "web_accessible_resources": ["bundle.js"]
 }

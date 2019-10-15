@@ -1,11 +1,12 @@
 {
-  "name": "reason-formatter",
+  "name": "reason-console-formatter",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --watch",
+    "dev": "webpack --mode=development --watch",
+    "build": "webpack --mode=production",
     "lint": "eslint ."
   },
   "author": "",
