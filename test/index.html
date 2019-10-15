@@ -1,1 +1,77 @@
-<a href="types.html">Types</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Formatter Extension Test Page</title>
+	<script>
+		console.time("Load formatters")
+	</script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+</head>
+
+<body>
+	<h1><a href="https://github.com/davesnx/reason-console-formatter#readme">ReasonML Console Formatter Demo</a></h1>
+
+	<p>See
+		<a href="https://github.com/davesnx/reason-console-formatter#readme">README</a>
+		on project page
+	</p>
+
+	<p>Open Console (F12) to see result of this code:</p>
+	<pre><code id="js-code"></code></pre>
+</body>
+
+<script id="js-tests">
+	const runTests = () => {
+		const list = [1, [2, [3, [4, [5, 0]]]]];
+		const record = {
+			That: '1',
+			is: '23',
+			a: 99,
+			record: 'Yes!'
+		};
+		const recordNested = {
+			That: '1',
+			is: '23',
+			a: 99,
+			record: 'Yes!'
+		};
+		const listNested = [{
+				a: 1
+			},
+			[{
+					b: 1
+				},
+				[{
+					c: 1
+				}, 0]
+			]
+		];
+
+		console.log(list);
+		console.log(record);
+		console.log(recordNested);
+		console.log(listNested);
+	};
+</script>
+
+<script>
+	const script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.onload = function () {
+		runTests()
+	}
+	script.src = "../dist/bundle.js"
+
+	document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+
+<script>
+	document.getElementById('js-code').innerText = document.getElementById('js-tests').innerText;
+</script>
+
+</html>

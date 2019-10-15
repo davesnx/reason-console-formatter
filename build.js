@@ -4,7 +4,7 @@ const template = fs.readFileSync('./content-script-template.js').toString()
 const bundle = fs.readFileSync('./dist/bundle.js').toString()
 
 const contentScript = template.replace(
-  '/* SCRIPT_TEXT_CONTENT */',
+  '[[SCRIPT_TEXT_CONTENT]]',
   'decodeURI("' + encodeURI(bundle) + '")'
 )
 

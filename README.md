@@ -23,13 +23,9 @@ The Chrome extension will only work if you **enable Custom Formatters** in the D
 Detects at runtime what kind of data structures are you logging into the console and maps them to ReasonML types.
 
 Currently supported:
-- [x] Nested structures
-- [x] Lists
-- [x] Records (Currently waiting for BuckleScript to treat Records as JS Objects)
-- [ ] Option
-- [ ] Bool
-- [ ] Working with `"bsc-flags": ["-bs-g"]`. [bucklescript/better-data-structures-printing-debug-mode](https://bucklescript.github.io/docs/en/better-data-structures-printing-debug-mode)
-- [Miss some?](https://github.com/davesnx/reason-formatter/issues/new)
+For now we only support Lists and nested Lists, since Records are not possible to detect them at runtime. Waiting for BuckleScript to treat Records as JS Objects (https://github.com/BuckleScript/bucklescript/issues/2922, not happening soon).
+
+If you miss some type that you thing would be helpful, [let me know, by opening a new Issue!](https://github.com/davesnx/reason-formatter/issues/new)
 
 ## Development
 

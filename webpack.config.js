@@ -1,6 +1,7 @@
 const WebpackShellPlugin = require('webpack-shell-plugin')
 
 module.exports = {
+  mode: 'development',
   entry: './index.js',
   output: { path: __dirname, filename: 'dist/bundle.js' },
   module: {
