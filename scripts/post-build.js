@@ -1,6 +1,8 @@
 const fs = require('fs')
 
-const template = fs.readFileSync('./content-script-template.js').toString()
+const template = fs
+  .readFileSync('./scripts/content-script-template.js')
+  .toString()
 const bundle = fs.readFileSync('./dist/bundle.js').toString()
 
 const contentScript = template.replace(
@@ -9,4 +11,4 @@ const contentScript = template.replace(
 )
 
 fs.writeFileSync('./extension/content-script.js', contentScript)
-console.log('build.js done')
+console.log('post-build.js done')
