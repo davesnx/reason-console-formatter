@@ -1,9 +1,13 @@
 // Dummy log fn to debug the extensions
 // without using the console
-function log(stuff) {
-  document.write('<br/>')
-  document.write(JSON.stringify(stuff))
+const log = stuff => {
+  const el = document.getElementById('debug')
+  el.innerHTML = JSON.stringify(stuff) + '<br/>' + el.innerHTML
 }
+
+const BS_RECORD = Symbol.for('BsRecord')
+const BS_VARIANT = Symbol.for('BsVariant')
+const BS_LOCAL_MODULE = Symbol.for('BsLocalModule')
 
 const flat = data => {
   // [1, 0] -> [1]
@@ -18,73 +22,28 @@ const flat = data => {
   return t
 }
 
-const isList = data => {
-  // Very unrealistic way to detect if its a ReasonML List
-  return Array.isArray(data) && Array.isArray(data[1])
-}
-
-const isRecord = data => {
-  return (
-    data instanceof Object &&
-    Object.prototype.toString.call(data) !== '[object Array]'
-  )
-}
-
-export function formatHeaderInFull(obj) {
-  const collection = collections.find(c => c.validate(obj))
-  return collection && collection.renderInlineFull(collection.name(obj), obj)
-}
-
-export function formatHeaderAsSummary(obj) {
-  const collection = collections.find(c => c.validate(obj))
-  return collection && collection.renderInlinePartial(collection.name(obj), obj)
-}
-
-export function formatHeaderAsTitle(obj) {
-  const collection = collections.find(c => c.validate(obj))
-  return collection && collection.renderTitle(collection.name(obj), obj)
-}
-
-export function formatBody(obj) {
-  const collection = collections.find(c => c.validate(obj))
-  return collection && collection.renderBody(obj)
-}
-
-const collections = [
-  {
-    name: () => 'List',
-    validate: isList,
-    renderBody: renderFullBody,
-    renderInlineFull: renderInlineFullList,
-    renderInlinePartial: renderTitleList,
-    renderTitle: renderTitleList
-  }
-  // {
-  //   name: () => 'Record',
-  //   validate: isRecord,
-  //   renderBody: renderRecordBody,
-  //   renderInlineFull: renderInlineFullMap,
-  //   renderInlinePartial: renderTitleMap,
-  //   renderTitle: renderTitleMap
-  // }
-]
+const isLinkedList = data =>
+  Array.isArray(data) && Array.isArray(data[1]) && data[BS_VARIANT] === '::'
+const isRecord = data => data[BS_RECORD] !== undefined
+const isVariant = data => data[BS_VARIANT] !== undefined
+const isModule = data => data[BS_LOCAL_MODULE] !== undefined
 
 const titleStyles = `
   white-space: normal;
   word-wrap: break-word;
 `
 
-function renderTitleList(name, list) {
+const renderTitleList = (name, list) => {
   return [
     'span',
     {
       style: titleStyles
     },
-    ['span', {}, `${name}[${list.length}]`]
+    ['span', {}, `${name} [${list.length}]`]
   ]
 }
 
-function renderTitleMap(name) {
+const renderTitleRecord = name => {
   return [
     'span',
     {
@@ -94,30 +53,30 @@ function renderTitleMap(name) {
   ]
 }
 
-// function renderInlinePartialMap(name, map) {
-//   return renderInlineFullMap(name, map)
+// const renderInlinePartialMap= (name, map) => {
+//   return renderInlineRecord(name, map)
 //     .slice(0, -1)
 //     .concat([['span', {}, '…'], '}'])
 // }
 
-function renderInlineFullList(name, list) {
+const renderInlineFullList = (name, list) => renderInlineArray(name, flat(list))
+
+const renderInlineArray = (name, arr) => {
   return [
     'span',
     {
       style: titleStyles
     },
-    `${name} [`
+    `${name} [`,
+    ...arr
+      .reduce((output, value) => {
+        output.push(['object', { object: value }])
+        output.push(', ')
+        return output
+      }, [])
+      .slice(0, -1),
+    ']'
   ]
-    .concat(
-      flat(list)
-        .reduce((output, value) => {
-          output.push(['object', { object: value }])
-          output.push(', ')
-          return output
-        }, [])
-        .slice(0, -1)
-    )
-    .concat(']')
 }
 
 const inlineMapStyles = `
@@ -131,7 +90,8 @@ const itemStyles = `
   flex-shrink: 0;
 `
 
-function renderInlineFullMap(name, map) {
+const renderInlineRecord = (name, map) => {
+  const keys = map[BS_RECORD]
   const values = Object.keys(map)
   return [
     'span',
@@ -143,16 +103,15 @@ function renderInlineFullMap(name, map) {
     .concat(
       values
         .reduce((output, value) => {
-          const key = map[value]
           output.push([
             'span',
             {
               style: itemStyles
             },
-            `${value}`
+            `${keys[value]}`
           ])
           output.push(': ')
-          output.push(['object', { object: key }])
+          output.push(['object', { object: map[value] }])
           output.push(', ')
           return output
         }, [])
@@ -182,11 +141,12 @@ const listStyles = `
   margin-top: 2px;
 `
 
-function renderFullBody(obj) {
-  const arr = flat(obj)
+const renderListBody = list => renderArrayBody(flat(list))
+
+const renderArrayBody = arr => {
   return arr.reduce(
     (output, value, key) => {
-      output.push(renderRecordItem(key, value))
+      output.push(renderItem(key, value))
       return output
     },
     [
@@ -198,7 +158,7 @@ function renderFullBody(obj) {
   )
 }
 
-function renderRecordItem(key, value) {
+const renderItem = (key, value) => {
   return [
     'li',
     {
@@ -227,12 +187,12 @@ function renderRecordItem(key, value) {
   ]
 }
 
-function renderRecordBody(obj) {
-  const values = Object.keys(obj)
+const renderRecordBody = record => {
+  const keys = record[BS_RECORD]
+  const values = Object.keys(record)
   return values.reduce(
     (output, value) => {
-      const key = obj[value]
-      output.push(renderRecordItem(key, value))
+      output.push(renderItem(keys[value], record[value]))
       return output
     },
     [
@@ -243,3 +203,84 @@ function renderRecordBody(obj) {
     ]
   )
 }
+
+export const formatHeaderInFull = obj => {
+  const formatter = formatterMap.find(c => c.validate(obj))
+  return formatter && formatter.renderInlineFull(formatter.name(obj), obj)
+}
+
+export const formatHeaderAsSummary = obj => {
+  const formatter = formatterMap.find(c => c.validate(obj))
+  return formatter && formatter.renderInlinePartial(formatter.name(obj), obj)
+}
+
+export const formatHeaderAsTitle = obj => {
+  const formatter = formatterMap.find(c => c.validate(obj))
+  return formatter && formatter.renderTitle(formatter.name(obj), obj)
+}
+
+export const formatBody = obj => {
+  const formatter = formatterMap.find(c => c.validate(obj))
+  return formatter && formatter.renderBody(obj)
+}
+
+const renderVariant = (name, data) => {
+  return data
+}
+
+const formatterMap = [
+  {
+    /* TODO:
+      Module aren't identificable by data[Symbol.for('BsLocalModule')]
+
+      Ex.
+        Can access to "Symbol(BsRecord)", but can't know if it's LocalModule
+        Array(2)
+          0: "Adam"
+          1: 31
+          length: 2
+          Symbol(BsRecord): (2) ["name", "age"]
+          __proto__: Array(0)
+    */
+    name: () => 'Module',
+    validate: isModule,
+    renderBody: renderRecordBody,
+    renderInlineFull: renderInlineRecord,
+    renderInlinePartial: renderTitleRecord,
+    renderTitle: renderTitleRecord
+  },
+  {
+    name: () => 'Record',
+    validate: isRecord,
+    renderBody: renderRecordBody,
+    renderInlineFull: renderInlineRecord,
+    renderInlinePartial: renderTitleRecord,
+    renderTitle: renderTitleRecord
+  },
+  {
+    name: () => 'List',
+    validate: isLinkedList,
+    renderBody: renderListBody,
+    renderInlineFull: renderInlineFullList,
+    renderInlinePartial: renderTitleList,
+    renderTitle: renderTitleList
+  },
+  {
+    // TODO: There's no data tag for Arrays
+    name: () => 'Array',
+    validate: Array.isArray, // TODO: For now this would affect all kind of arrays
+    renderBody: renderArrayBody,
+    renderInlineFull: renderInlineArray,
+    renderInlinePartial: renderTitleList,
+    renderTitle: renderTitleList
+  },
+  {
+    // TODO: Variant aren't identificable by data[Symbol.for('BsVariant')]
+    name: () => 'Variant',
+    validate: isVariant,
+    renderBody: renderVariant,
+    renderInlineFull: renderVariant,
+    renderInlinePartial: renderVariant,
+    renderTitle: renderVariant
+  }
+]

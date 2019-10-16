@@ -1,7 +1,7 @@
 ####{BSB GENERATED: NO EDIT
 B lib/bs
 FLG -open BsDemo
-FLG -ppx /Users/davidsancho/.config/yarn/global/node_modules/bs-platform/lib/bsppx.exe
+FLG -ppx /Users/davidsancho/dev/reason-console-formatter/test/bs-demo/node_modules/bs-platform/lib/bsppx.exe
 S /Users/davidsancho/dev/reason-console-formatter/test/bs-demo/node_modules/bs-platform/lib/ocaml
 B /Users/davidsancho/dev/reason-console-formatter/test/bs-demo/node_modules/bs-platform/lib/ocaml
 FLG -nostdlib -color always

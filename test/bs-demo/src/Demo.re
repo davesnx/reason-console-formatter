@@ -16,8 +16,10 @@ module Person = {
 
 let adam = Person.make();
 
-Js.log("module");
-Js.log(adam);
+[%bs.raw {| console.clear() |}];
+
+Js.Console.warn("module");
+Js.Console.warn(adam);
 Js.log(" ");
 
 let greet: string = Person.greet(adam);
@@ -28,7 +30,7 @@ Js.log(" ");
 
 let list: list(int) = [1, 2, 3, 4, 5];
 
-Js.log("list(int)");
+Js.log("list (int)");
 Js.log(list);
 Js.log(" ");
 
@@ -40,28 +42,32 @@ let nestedList: list(Person.details) = [
   {name: "crup", age: 11},
 ];
 
-Js.log("list(Person.details)");
-Js.log(nestedList);
+Js.log("Record {name, age}");
+Js.log(List.hd(nestedList));
 Js.log(" ");
 
-let arr: array(string) = [|"a", "b"|];
+Js.Console.error("List (Person.details)");
+Js.Console.error(nestedList);
+Js.log(" ");
 
-Js.log("array(string)");
+let arr: array(string) = [|"a", "b", "c", "23"|];
+
+Js.log("array (string)");
 Js.log(arr);
 Js.log(" ");
 
 let tuple: (int, int) = (1, 2);
 
-Js.log("(int, int)");
-Js.log(tuple);
+Js.Console.error("(int, int)");
+Js.Console.error(tuple);
 Js.log(" ");
 
 type obj = {. color: string};
 
 let car: obj = {pub color = "Red"};
 
-Js.log("record");
-Js.log(car);
+Js.Console.error("Object");
+Js.Console.error(car);
 Js.log(" ");
 
 type myResponseVariant =
@@ -69,8 +75,8 @@ type myResponseVariant =
   | No
   | PrettyMuch;
 
-let areYouCrushingIt = Yes;
+let areYouCrushingIt = PrettyMuch;
 
-Js.log("Variant");
-Js.log(areYouCrushingIt);
+Js.Console.error("Variant");
+Js.Console.error(areYouCrushingIt);
 Js.log(" ");
