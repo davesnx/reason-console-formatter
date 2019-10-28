@@ -1,8 +1,8 @@
 // Dummy log fn to debug the extensions
 // without using the console
-function log(stuff) { // eslint-disable-line
-  document.write('<br/>')
-  document.write(JSON.stringify(stuff))
+const log = stuff => { // eslint-disable-line
+  const el = document.getElementById('debug')
+  el.innerHTML = JSON.stringify(stuff) + '<br/>' + el.innerHTML
 }
 
 const flat = data => {
