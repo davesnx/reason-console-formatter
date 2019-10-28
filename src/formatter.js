@@ -1,6 +1,6 @@
 // Dummy log fn to debug the extensions
 // without using the console
-function log(stuff) {
+function log(stuff) { // eslint-disable-line
   document.write('<br/>')
   document.write(JSON.stringify(stuff))
 }
@@ -21,13 +21,6 @@ const flat = data => {
 const isList = data => {
   // Very unrealistic way to detect if its a ReasonML List
   return Array.isArray(data) && Array.isArray(data[1])
-}
-
-const isRecord = data => {
-  return (
-    data instanceof Object &&
-    Object.prototype.toString.call(data) !== '[object Array]'
-  )
 }
 
 export function formatHeaderInFull(obj) {
@@ -59,14 +52,6 @@ const collections = [
     renderInlinePartial: renderTitleList,
     renderTitle: renderTitleList
   }
-  // {
-  //   name: () => 'Record',
-  //   validate: isRecord,
-  //   renderBody: renderRecordBody,
-  //   renderInlineFull: renderInlineFullMap,
-  //   renderInlinePartial: renderTitleMap,
-  //   renderTitle: renderTitleMap
-  // }
 ]
 
 const titleStyles = `
@@ -83,22 +68,6 @@ function renderTitleList(name, list) {
     ['span', {}, `${name}[${list.length}]`]
   ]
 }
-
-function renderTitleMap(name) {
-  return [
-    'span',
-    {
-      style: titleStyles
-    },
-    ['span', {}, `${name}`]
-  ]
-}
-
-// function renderInlinePartialMap(name, map) {
-//   return renderInlineFullMap(name, map)
-//     .slice(0, -1)
-//     .concat([['span', {}, '…'], '}'])
-// }
 
 function renderInlineFullList(name, list) {
   return [
@@ -120,46 +89,10 @@ function renderInlineFullList(name, list) {
     .concat(']')
 }
 
-const inlineMapStyles = `
-  font-style: italic;
-  white-space: normal;
-  word-wrap:break-word;
-`
-
 const itemStyles = `
   color: rgb(136, 19, 145);
   flex-shrink: 0;
 `
-
-function renderInlineFullMap(name, map) {
-  const values = Object.keys(map)
-  return [
-    'span',
-    {
-      style: inlineMapStyles
-    },
-    `${name} {`
-  ]
-    .concat(
-      values
-        .reduce((output, value) => {
-          const key = map[value]
-          output.push([
-            'span',
-            {
-              style: itemStyles
-            },
-            `${value}`
-          ])
-          output.push(': ')
-          output.push(['object', { object: key }])
-          output.push(', ')
-          return output
-        }, [])
-        .slice(0, -1)
-    )
-    .concat('}')
-}
 
 const bodyStyles = `
   text-overflow: ellipsis;
@@ -225,21 +158,4 @@ function renderRecordItem(key, value) {
       }
     ]
   ]
-}
-
-function renderRecordBody(obj) {
-  const values = Object.keys(obj)
-  return values.reduce(
-    (output, value) => {
-      const key = obj[value]
-      output.push(renderRecordItem(key, value))
-      return output
-    },
-    [
-      'ol',
-      {
-        style: listStyles
-      }
-    ]
-  )
 }

@@ -28,24 +28,9 @@
 <script id="js-tests">
 	const runTests = () => {
 		const list = [1, [2, [3, [4, [5, 0]]]]];
-		const record = {
-			That: '1',
-			is: '23',
-			a: 99,
-			record: 'Yes!'
-		};
-		const recordNested = {
-			That: '1',
-			is: '23',
-			a: 99,
-			record: 'Yes!'
-		};
-
-		const listNested = [{ a: 1 }, [{ b: 1 }, [{ c: 1 }, 0]]];
+		const listNested = [list, [list, 0]];
 
 		console.log(list);
-		console.log(record);
-		console.log(recordNested);
 		console.log(listNested);
 	};
 </script>
@@ -53,10 +38,8 @@
 <script>
 	const script = document.createElement('script');
 	script.type = 'text/javascript';
-	console.log(window.devtoolsFormatters)
 	script.onload = function () {
 		runTests()
-		console.log(window.devtoolsFormatters)
 	}
 	script.src = "../dist/bundle.js"
 
