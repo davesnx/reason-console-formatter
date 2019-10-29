@@ -28,11 +28,35 @@
 
 <script id="js-tests">
 	const runTests = () => {
-		const list = [1, [2, [3, [4, [5, 0]]]]];
-		const listNested = [list, [list, 0]];
 
-		console.log(list);
-		console.log(listNested);
+		// https://reasonml.github.io/try?rrjsx=true&reason=DYUwLgBMCWDOYEEIF4IG0CMAaCAmHAzDgCwC6A3AFCiQB2I8IAJgDJySpozwI7eIUgA
+		var listA = /* :: */[
+			1,
+			/* :: */[
+				2,
+				/* :: */[
+					3,
+					/* :: */[
+						4,
+						/* [] */0
+					]
+				]
+			]
+		];
+
+		var nestedList_001 = /* :: */[
+			listA,
+			/* [] */0
+		];
+
+		var nestedList = /* :: */[
+			listA,
+			nestedList_001
+		];
+
+
+		console.log(listA);
+		console.log(nestedList);
 	};
 </script>
 
