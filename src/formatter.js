@@ -1,8 +1,8 @@
 // Dummy log fn to debug the extensions
 // without using the console
-const log = stuff => {
+const log = stuff => { // eslint-disable-line
   const el = document.getElementById('debug')
-  el.innerHTML = JSON.stringify(stuff) + '<br/>' + el.innerHTML
+  el.innerHTML = +el.innerHTML + '<br/>' + JSON.stringify(stuff)
 }
 
 const BS_RECORD = Symbol.for('BsRecord')
@@ -79,15 +79,15 @@ const renderInlineArray = (name, arr) => {
   ]
 }
 
+const itemStyles = `
+  color: rgb(136, 19, 145);
+  flex-shrink: 0;
+`
+
 const inlineMapStyles = `
   font-style: italic;
   white-space: normal;
   word-wrap:break-word;
-`
-
-const itemStyles = `
-  color: rgb(136, 19, 145);
-  flex-shrink: 0;
 `
 
 const renderInlineRecord = (name, map) => {

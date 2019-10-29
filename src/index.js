@@ -22,6 +22,7 @@ const rootFormatter = {
 }
 
 let formattersLoaded = false
+
 function install() {
   const gw = typeof window === 'undefined' ? global : window
 

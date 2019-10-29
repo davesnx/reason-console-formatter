@@ -23,40 +23,52 @@
 
 	<p>Open Console (F12) to see result of this code: (refresh if the extension did not load yet)</p>
 	<pre><code id="js-code"></code></pre>
+	<div id="debug"></div>
 </body>
 
 <script id="js-tests">
 	const runTests = () => {
-		const list = [1, [2, [3, [4, [5, 0]]]]];
-		const record = {
-			That: '1',
-			is: '23',
-			a: 99,
-			record: 'Yes!'
-		};
-		const recordNested = {
-			That: '1',
-			is: '23',
-			a: 99,
-			record: 'Yes!'
-		};
 
-		const listNested = [{ a: 1 }, [{ b: 1 }, [{ c: 1 }, 0]]];
+		// https://reasonml.github.io/try?rrjsx=true&reason=DYUwLgBMCWDOYEEIF4IG0CMAaCAmHAzDgCwC6A3AFCiQB2I8IAJgDJySpozwI7eIUgA
+		var listA = /* :: */[
+			1,
+			/* :: */[
+				2,
+				/* :: */[
+					3,
+					/* :: */[
+						4,
+						/* [] */0
+					]
+				]
+			]
+		];
 
-		console.log(list);
-		console.log(record);
-		console.log(recordNested);
-		console.log(listNested);
+		var listB = /* :: */[
+			"Hola",
+			/* :: */[
+				"Halo",
+				/* :: */[
+					"Hi",
+					/* :: */[
+						"Aloha",
+						/* [] */0
+					]
+				]
+			]
+		];
+
+
+		console.log(listA);
+		console.log(listB);
 	};
 </script>
 
 <script>
 	const script = document.createElement('script');
 	script.type = 'text/javascript';
-	console.log(window.devtoolsFormatters)
 	script.onload = function () {
 		runTests()
-		console.log(window.devtoolsFormatters)
 	}
 	script.src = "../dist/bundle.js"
 

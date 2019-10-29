@@ -1,14 +1,15 @@
 # ReasonML Console Formatter
 
-![](./docs/demo.png)
+![](./docs/list-demo.png)
 
-Status: ALPHA
+### Status: ALPHA
+Read "How it works" section.
 
-Transforms ReasonML types objects to a more readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html). Pretty print on nested structures and no more `[1, [2, [3, [4, [5, 0]]]]]`.
+Transforms ReasonML types to a readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html).
 
 More information about the Chrome Extension comming soon...
 
-The Chrome extension will only work if you **enable Custom Formatters** in the DevTools settings.
+The Chrome extension only works if you **enable Custom Formatters** in the DevTools settings.
 
 ### Step 1: Open DevTools settings
 
@@ -23,7 +24,7 @@ The Chrome extension will only work if you **enable Custom Formatters** in the D
 Detects at runtime what kind of data structures are you logging into the console and maps them to ReasonML types.
 
 Currently supported:
-For now we only support Lists and nested Lists, since Records are not possible to detect them at runtime. Waiting for BuckleScript to treat Records as JS Objects (https://github.com/BuckleScript/bucklescript/issues/2922, not happening soon).
+For now we only support Lists, since Records are not possible to detect them at runtime. Waiting for BuckleScript to treat Records as JS Objects (https://github.com/BuckleScript/bucklescript/issues/2922, not happening soon).
 
 If you miss some type that you thing would be helpful, [let me know, by opening a new Issue!](https://github.com/davesnx/reason-formatter/issues/new)
 
