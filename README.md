@@ -41,7 +41,8 @@ The Chrome extension only works if you **enable Custom Formatters** in the DevTo
 3. Click on load unpacked extension and select the "/extension" directory of the cloned repo
 4. `npm install`
 5. `npm run dev`
-6. Open "/test/index.html" (`open /test/index.html`) to check run some tests
+6. Open "/test/index.html" (`open /test/index.html`) to check the List implementation
+7. Open "test/bs-demo/README.md and follow the steps there!
 
 ## Credit
 
