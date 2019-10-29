@@ -10,7 +10,7 @@ Detects at runtime what kind of data structures are you logging into the console
 
 Right now, BuckleScript has a debug flag (`"-bs-g"`) that labels some of the types with some JavaScript Symbols that can be catched by this extension and pretty prints them:
 
-![](./docs/current-status.png)
+![](./docs/demo.png)
 > This is the output of the tests, take a look at `test/bs-demo/README.md`!
 
 Right now `bs-g`, aside from the labeling does a little bit of formatting as well. The down-site is that it contains a lot of bugs and isn't something easy to refactor. [@bobzhang](https://github.com/bobzhang) said that this part of Bucklescript's source code is a mess.
