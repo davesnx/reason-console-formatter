@@ -39,4 +39,4 @@ If you miss some type that you thing would be helpful, [let me know, by opening 
 
 ## Credit
 
-Based on [immutable-devtools](https://github.com/andrewdavey/immutable-devtools).
+Based on [immutable-devtools](https://github.com/andrewdavey/immutable-devtools) and inspired by the awesome [cljs-devtools](https://github.com/binaryage/cljs-devtools)
