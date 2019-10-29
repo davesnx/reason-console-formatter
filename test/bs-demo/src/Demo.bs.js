@@ -63,9 +63,42 @@ var list = /* :: */Caml_chrome_debugger.simpleVariant("::", [
       ])
   ]);
 
+var listA = /* :: */Caml_chrome_debugger.simpleVariant("::", [
+    1,
+    /* :: */Caml_chrome_debugger.simpleVariant("::", [
+        2,
+        /* :: */Caml_chrome_debugger.simpleVariant("::", [
+            3,
+            /* :: */Caml_chrome_debugger.simpleVariant("::", [
+                4,
+                /* :: */Caml_chrome_debugger.simpleVariant("::", [
+                    5,
+                    /* [] */0
+                  ])
+              ])
+          ])
+      ])
+  ]);
+
+var listB_001 = /* :: */Caml_chrome_debugger.simpleVariant("::", [
+    list,
+    /* [] */0
+  ]);
+
+var listB = /* :: */Caml_chrome_debugger.simpleVariant("::", [
+    listA,
+    listB_001
+  ]);
+
 console.log("list (int)");
 
 console.log(list);
+
+console.log(" ");
+
+console.log("list (list (int))");
+
+console.log(listB);
 
 console.log(" ");
 
@@ -185,6 +218,8 @@ export {
   adam ,
   greet$1 as greet,
   list ,
+  listA ,
+  listB ,
   nestedList ,
   arr ,
   tuple ,

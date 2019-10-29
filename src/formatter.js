@@ -2,7 +2,7 @@
 // without using the console
 const log = stuff => { // eslint-disable-line
   const el = document.getElementById('debug')
-  el.innerHTML = +el.innerHTML + '<br/>' + JSON.stringify(stuff)
+  el.innerHTML = el.innerHTML + '<br/>' + JSON.stringify(stuff)
 }
 
 const BS_RECORD = Symbol.for('BsRecord')
@@ -25,8 +25,9 @@ const flat = data => {
 const isLinkedList = data =>
   Array.isArray(data) && Array.isArray(data[1]) && data[BS_VARIANT] === '::'
 const isRecord = data => data[BS_RECORD] !== undefined
-const isVariant = data => data[BS_VARIANT] !== undefined
-const isModule = data => data[BS_LOCAL_MODULE] !== undefined
+
+const isVariant = data => data[BS_VARIANT] !== undefined // eslint-disable-line
+const isModule = data => data[BS_LOCAL_MODULE] !== undefined // eslint-disable-line
 
 const titleStyles = `
   white-space: normal;
@@ -224,31 +225,27 @@ export const formatBody = obj => {
   return formatter && formatter.renderBody(obj)
 }
 
-const renderVariant = (name, data) => {
-  return data
-}
-
 const formatterMap = [
-  {
-    /* TODO:
-      Module aren't identificable by data[Symbol.for('BsLocalModule')]
+  /* TODO:
+  Module aren't identificable by data[Symbol.for('BsLocalModule')]
 
-      Ex.
+  Ex.
         Can access to "Symbol(BsRecord)", but can't know if it's LocalModule
         Array(2)
-          0: "Adam"
-          1: 31
-          length: 2
-          Symbol(BsRecord): (2) ["name", "age"]
-          __proto__: Array(0)
-    */
+        0: "Adam"
+        1: 31
+        length: 2
+        Symbol(BsRecord): (2) ["name", "age"]
+        __proto__: Array(0)
+
+  {
     name: () => 'Module',
     validate: isModule,
     renderBody: renderRecordBody,
     renderInlineFull: renderInlineRecord,
     renderInlinePartial: renderTitleRecord,
     renderTitle: renderTitleRecord
-  },
+  },  */
   {
     name: () => 'Record',
     validate: isRecord,
@@ -264,23 +261,23 @@ const formatterMap = [
     renderInlineFull: renderInlineFullList,
     renderInlinePartial: renderTitleList,
     renderTitle: renderTitleList
-  },
-  {
-    // TODO: There's no data tag for Arrays
-    name: () => 'Array',
-    validate: Array.isArray, // TODO: For now this would affect all kind of arrays
-    renderBody: renderArrayBody,
-    renderInlineFull: renderInlineArray,
-    renderInlinePartial: renderTitleList,
-    renderTitle: renderTitleList
-  },
-  {
-    // TODO: Variant aren't identificable by data[Symbol.for('BsVariant')]
-    name: () => 'Variant',
-    validate: isVariant,
-    renderBody: renderVariant,
-    renderInlineFull: renderVariant,
-    renderInlinePartial: renderVariant,
-    renderTitle: renderVariant
   }
+  // {
+  //   // TODO: There's no data tag for Arrays
+  //   name: () => 'Array',
+  //   validate: Array.isArray, // TODO: For now this would affect all kind of arrays
+  //   renderBody: renderArrayBody,
+  //   renderInlineFull: renderInlineArray,
+  //   renderInlinePartial: renderTitleList,
+  //   renderTitle: renderTitleList
+  // },
+  // {
+  //   // TODO: Variant aren't identificable by data[Symbol.for('BsVariant')]
+  //   name: () => 'Variant',
+  //   validate: isVariant,
+  //   renderBody: renderVariant,
+  //   renderInlineFull: renderVariant,
+  //   renderInlinePartial: renderVariant,
+  //   renderTitle: renderVariant
+  // }
 ]

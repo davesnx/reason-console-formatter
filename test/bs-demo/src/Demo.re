@@ -29,9 +29,15 @@ Js.log(greet);
 Js.log(" ");
 
 let list: list(int) = [1, 2, 3, 4, 5];
+let listA: list(int) = [1, 2, 3, 4, 5];
+let listB = [listA, list];
 
 Js.log("list (int)");
 Js.log(list);
+Js.log(" ");
+
+Js.log("list (list (int))");
+Js.log(listB);
 Js.log(" ");
 
 let nestedList: list(Person.details) = [
@@ -46,6 +52,7 @@ Js.log("Record {name, age}");
 Js.log(List.hd(nestedList));
 Js.log(" ");
 
+/* TODO: Detect nesting between data structures */
 Js.Console.error("List (Person.details)");
 Js.Console.error(nestedList);
 Js.log(" ");
