@@ -1,6 +1,6 @@
 # ReasonML Console Formatter
 
-![](./docs/demo.png)
+![](./docs/list-demo.png)
 
 ### Status: ALPHA
 Read "How it works" section.
