@@ -37,6 +37,7 @@ The Chrome extension only works if you **enable Custom Formatters** in the DevTo
 ## Development
 
 1. Clone this repo
+<!-- Remove those steps ^^ -->
 2. Go to chrome extensions chrome://extensions
 3. Click on load unpacked extension and select the "/extension" directory of the cloned repo
 4. `npm install`
