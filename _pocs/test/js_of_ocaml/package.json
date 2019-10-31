@@ -1,0 +1,13 @@
+{
+  "name": "js_of_ocaml",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel _build/default/index.html",
+    "prestart": "dune build"
+  },
+  "dependencies": {
+    "parcel": "^1.12.4"
+  }
+}
