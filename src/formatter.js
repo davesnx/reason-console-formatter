@@ -19,6 +19,7 @@ const flat = data => {
 }
 
 const isList = data => {
+  log(data)
   // Very unrealistic way to detect if its a ReasonML List
   return Array.isArray(data) && Array.isArray(data[1])
 }

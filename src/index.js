@@ -33,6 +33,7 @@ function install() {
 
   gw.devtoolsFormatters = gw.devtoolsFormatters || []
   gw.devtoolsFormatters.push(rootFormatter)
+  // console.log(gw.devtoolsFormatters)
 
   formattersLoaded = true
 }
