@@ -1,3 +1,5 @@
+import flat from './flat'
+
 // Dummy log fn to debug the extensions
 // without using the console
 const log = stuff => { // eslint-disable-line
@@ -5,55 +7,39 @@ const log = stuff => { // eslint-disable-line
   el.innerHTML = JSON.stringify(stuff) + '<br/>' + el.innerHTML
 }
 
-const flat = data => {
-  // [1, 0] -> [1]
-  // [1, [2]] -> [1, 2]
-  // [1, [2, [3]]] -> [1, 2, [3]]
-  let t = []
-  while (Array.isArray(data)) {
-    t = t.concat(data[0])
-    data = data[1]
-  }
-
-  return t
-}
-
 const isList = data => {
-  log(data)
   // Very unrealistic way to detect if its a ReasonML List
   return Array.isArray(data) && Array.isArray(data[1])
 }
 
-export function formatHeaderInFull(obj) {
-  const collection = collections.find(c => c.validate(obj))
-  return collection && collection.renderInlineFull(collection.name(obj), obj)
-}
+export const ListFormatter = {
+  header(data) {
+    // if (data.__IS_NESTED__) return formatters.formatHeaderAsTitle(data.value);
+    // if (data.length >= 100) return formatHeaderAsSummary(data.slice(0, 99))
+    if (!isList(data)) return null
+    return renderInlineFullList('List', data)
+  },
 
-export function formatHeaderAsSummary(obj) {
-  const collection = collections.find(c => c.validate(obj))
-  return collection && collection.renderInlinePartial(collection.name(obj), obj)
-}
+  hasBody(data) {
+    // return data && data.toJS && (data.size >= 100 || data.__IS_NESTED__);
+    return !!data
+  },
 
-export function formatHeaderAsTitle(obj) {
-  const collection = collections.find(c => c.validate(obj))
-  return collection && collection.renderTitle(collection.name(obj), obj)
-}
-
-export function formatBody(obj) {
-  const collection = collections.find(c => c.validate(obj))
-  return collection && collection.renderBody(obj)
-}
-
-const collections = [
-  {
-    name: () => 'List',
-    validate: isList,
-    renderBody: renderFullBody,
-    renderInlineFull: renderInlineFullList,
-    renderInlinePartial: renderTitleList,
-    renderTitle: renderTitleList
+  body(data) {
+    if (!isList(data)) return null
+    return renderFullBody(data)
   }
-]
+}
+// const collections = [
+//   {
+//     name: () => 'List',
+//     validate: isList,
+//     renderBody: renderFullBody,
+//     renderInlineFull: renderInlineFullList,
+//     renderInlinePartial: renderTitleList,
+//     renderTitle: renderTitleList
+//   }
+// ]
 
 const titleStyles = `
   white-space: normal;
