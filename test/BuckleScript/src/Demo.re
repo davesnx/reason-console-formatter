@@ -27,19 +27,14 @@
    Js.log(" ");
     */
 
-let list: list(int) = [1, 2, 3, 4, 5];
 let listA: list(int) = [1, 2, 3, 4, 5];
 let listB: list(int) = [1, 2, 3, 4, 5];
 
-Js.log("list(int)");
-Js.log(list);
-Js.log(" ");
+Js.log2("list(int)      ", listA);
 
-let nestedList: list(list(int)) = [list, listA, listB];
+let nestedList: list(list(int)) = [listA, listB];
 
-Js.log("list(list(int))");
-Js.log(nestedList);
-Js.log(" ");
+Js.log2("list(list(int))", nestedList);
 
 /* let arr: array(string) = [|"a", "b"|];
 
