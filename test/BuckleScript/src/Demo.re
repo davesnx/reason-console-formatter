@@ -29,8 +29,10 @@
 
 let listA: list(int) = [1, 2, 3, 4, 5];
 let listB: list(int) = [1, 2, 3, 4, 5];
+let listC: list(string) = ["Lets", "get", "ready", "to", "rumble!"];
 
 Js.log2("list(int)      ", listA);
+Js.log2("list(string)   ", listC);
 
 let nestedList: list(list(int)) = [listA, listB];
 

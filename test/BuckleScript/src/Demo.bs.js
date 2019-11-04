@@ -35,7 +35,26 @@ var listB = /* :: */[
   ]
 ];
 
+var listC = /* :: */[
+  "Lets",
+  /* :: */[
+    "get",
+    /* :: */[
+      "ready",
+      /* :: */[
+        "to",
+        /* :: */[
+          "rumble!",
+          /* [] */0
+        ]
+      ]
+    ]
+  ]
+];
+
 console.log("list(int)      ", listA);
+
+console.log("list(string)   ", listC);
 
 var nestedList_001 = /* :: */[
   listB,
@@ -52,6 +71,7 @@ console.log("list(list(int))", nestedList);
 export {
   listA ,
   listB ,
+  listC ,
   nestedList ,
   
 }
