@@ -1,5 +1,8 @@
 # ReasonML Console Formatter
 
+### Install
+[https://chrome.google.com/webstore/detail/reasonml-formatter](https://chrome.google.com/webstore/detail/reasonml-formatter/jfgngkbfmnccnokfkajhloldhkgeking)
+
 ### Status: ALPHA (only works with [Lists](https://reasonml.github.io/docs/en/list-and-array) & nested Lists) ⚠️
 
 Transforms ReasonML types to a readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html).
