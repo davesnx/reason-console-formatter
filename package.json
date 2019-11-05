@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "open test/index.html",
+    "test": "jest",
     "dev": "webpack --mode=development --watch",
     "build": "webpack --mode=production",
     "lint": "eslint .",
