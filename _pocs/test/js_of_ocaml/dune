@@ -1,6 +1,6 @@
 (executables
   (names index)
-  (preprocess (pps js_of_ocaml-ppx)))
+  (preprocess (pps js_of_ocaml-ppx ppx_deriving Ppx_deriving_runtime)))
 
 (rule
   (targets index.js)
