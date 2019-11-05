@@ -1,6 +1,6 @@
 let list = [1; 2; 3] ;;
 
-print_endline "asdfasdf" ;;
+log list
 
 let tuple = (4, 5) ;;
 
