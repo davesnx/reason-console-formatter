@@ -3,3 +3,4 @@ dist/
 extension/content-script.js
 .DS_Store
 *.zip
+extension/*
