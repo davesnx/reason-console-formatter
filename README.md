@@ -6,7 +6,7 @@ Transforms ReasonML types to a readable format when they are logged to the [Chro
 
 #### Status: ⚠️ ALPHA (only works with [Lists](https://reasonml.github.io/docs/en/list-and-array) & nested Lists) ⚠️
 
-![](./docs/demo.png)
+![](/docs/demo.png)
 
 ### Use it
 
@@ -14,11 +14,11 @@ The Chrome extension only works if you **enable Custom Formatters** in the DevTo
 
 ### Step 1: Open DevTools settings
 
-![](./docs/chrome-settings.png)
+![](/docs/chrome-settings.png)
 
 ### Step 2: Enable custom formatters
 
-![](./docs/chrome-enable-custom-formatters.png)
+![](/docs/chrome-enable-custom-formatters.png)
 
 
 ## How it works
@@ -27,7 +27,7 @@ Detects at runtime what kind of data structures are you logging into the console
 
 Right now, BuckleScript has a debug flag (`"-bs-g"`) that labels some of the types with some JavaScript Symbols that can be catched by this extension and pretty prints them:
 
-![](./docs/future-demo.png)
+![](/docs/future-demo.png)
 > This is the output of the tests, the future of this extension. Right now, you can take a look at `test/bs-demo/README.md` to get a better idea on what's keeping us to implement that! Thanks! 😄
 
 Right now `bs-g`, aside from the labeling does a little bit of formatting as well. The down-site is that it contains a lot of bugs and isn't something easy to refactor. [@bobzhang](https://github.com/bobzhang) said that this part of Bucklescript's source code is a mess.
