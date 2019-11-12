@@ -12,6 +12,8 @@ const install = () => {
   window.devtoolsFormatters = window.devtoolsFormatters || []
   window.devtoolsFormatters.push(ListFormatter)
   window.formattersLoaded = true
+
+  console.log('LOADED')
 }
 
 install()
