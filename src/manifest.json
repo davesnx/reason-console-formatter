@@ -2,7 +2,7 @@
   "name": "ReasonML Formatter",
   "short_name": "ReasonML Formatter",
   "description": "Makes ReasonML types more readable when they are logged to the console.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "manifest_version": 2,
   "minimum_chrome_version": "48.0",
   "icons": {
