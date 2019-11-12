@@ -1,20 +1,17 @@
 import { ListFormatter } from './formatter'
+import window from 'global/window'
 
-let formattersLoaded = false
+window.formattersLoaded = false
 
-function install() {
-  const gw = typeof window === 'undefined' ? global : window
-
+const install = () => {
   // Don't install more than once.
-  if (formattersLoaded === true) {
+  if (window.formattersLoaded === true) {
     return
   }
 
-  gw.devtoolsFormatters = gw.devtoolsFormatters || []
-  gw.devtoolsFormatters.push(ListFormatter)
-  // console.log(gw.devtoolsFormatters)
-
-  formattersLoaded = true
+  window.devtoolsFormatters = window.devtoolsFormatters || []
+  window.devtoolsFormatters.push(ListFormatter)
+  window.formattersLoaded = true
 }
 
 install()

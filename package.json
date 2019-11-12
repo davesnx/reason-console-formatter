@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.4",
+    "terser-webpack-plugin": "^2.2.1",
     "webpack-extension-reloader": "^1.1.2"
   }
 }

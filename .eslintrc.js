@@ -1,3 +1,8 @@
+const disable = 0
+
 module.exports = {
-  extends: 'davesnx-rules'
+  extends: 'davesnx-rules',
+  rules: {
+    'import/no-webpack-loader-syntax': disable
+  }
 }

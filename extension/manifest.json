@@ -7,8 +7,10 @@
   "minimum_chrome_version": "48.0",
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*", "file://*/*"],
-      "js": ["content-script.js"],
+      "matches": [
+        "<all_urls>"
+      ],
+            "js": ["content-script.js"],
       "all_frames": true,
       "run_at": "document_start"
     }
