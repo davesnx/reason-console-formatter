@@ -1,14 +1,15 @@
-const flat = require('./flat')
+const { flat, deepFlat } = require('./flat')
 
 describe('Flat', () => {
   test('list(int)', () => {
     const list = [1, [2, [3, [4, 0]]]]
+    expect(deepFlat(list)).toEqual([1, 2, 3, 4])
     expect(flat(list)).toEqual([1, 2, 3, 4])
   })
 
   test('list(string)', () => {
     const list = ['Hola', ['Cara', ['Cola', ['!!', 0]]]]
-    expect(flat(list)).toEqual(['Hola', 'Cara', 'Cola', '!!'])
+    expect(deepFlat(list)).toEqual(['Hola', 'Cara', 'Cola', '!!'])
   })
 
   test('list(list(i))', () => {
@@ -24,7 +25,7 @@ describe('Flat', () => {
 
     const nestedList = /* :: */ [listA, [listB, /* [] */ 0]]
 
-    expect(flat(nestedList)).toEqual([[1, 2, 3, 4, 5], [1, 2, 3, 4]])
+    expect(deepFlat(nestedList)).toEqual([[1, 2, 3, 4, 5], [1, 2, 3, 4]])
   })
 
   test('list(list(list(i)))', () => {
@@ -43,7 +44,7 @@ describe('Flat', () => {
     const nestedListSupreme001 = /* :: */ [nestedListB, /* [] */ 0]
     const nestedListSupreme = /* :: */ [nestedList, nestedListSupreme001]
 
-    expect(flat(nestedListSupreme)).toEqual([
+    expect(deepFlat(nestedListSupreme)).toEqual([
       [[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]],
       [[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]]
     ])
