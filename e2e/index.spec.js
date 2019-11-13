@@ -15,6 +15,7 @@ const tearUp = async () => {
         //     'devtools.preferences.customFormatters': true // Currently not possible
         //   }
       },
+      executablePath: '/usr/bin/google-chrome',
       headless: false, // extension are allowed only in head-full mode
       args: [
         `--disable-extensions-except=${extensionPath}`,

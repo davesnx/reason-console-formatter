@@ -2,9 +2,9 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:12.12.0-browsers
-        environment:
-          CHROME_BIN: "/usr/bin/google-chrome"
+      - image: circleci/node:latest-browsers
+        # environment:
+        #   CHROME_BIN: "/usr/bin/google-chrome"
 
     working_directory: ~/repo
 
