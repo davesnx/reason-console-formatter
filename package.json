@@ -11,8 +11,17 @@
     "lint": "eslint .",
     "zip": "zip -r publish/reason-console-formatter-$npm_package_version.zip extension"
   },
-  "author": "",
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn e2e"
+    }
+  },
+  "author": "davesnx <dsnxmoreno@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davesnx/reason-console-formatter.git"
+  },
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
@@ -30,6 +39,7 @@
   },
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.4",
+    "husky": "^3.0.9",
     "terser-webpack-plugin": "^2.2.1",
     "webpack-extension-reloader": "^1.1.2"
   }
