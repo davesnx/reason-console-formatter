@@ -19,5 +19,6 @@
       "run_at": "document_start"
     }
   ],
-  "permissions": ["activeTab"]
+  "permissions": ["activeTab"],
+  "content_security_policy": "script-src 'self'"
 }

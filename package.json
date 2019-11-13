@@ -11,11 +11,6 @@
     "lint": "eslint .",
     "zip": "zip -r publish/reason-console-formatter-$npm_package_version.zip extension"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn e2e"
-    }
-  },
   "author": "davesnx <dsnxmoreno@gmail.com>",
   "license": "ISC",
   "repository": {
@@ -38,6 +33,7 @@
     "webpack-shell-plugin": "^0.5.0"
   },
   "devDependencies": {
+    "chrome-webstore-upload-cli": "^1.2.0",
     "copy-webpack-plugin": "^5.0.4",
     "husky": "^3.0.9",
     "terser-webpack-plugin": "^2.2.1",
