@@ -4,7 +4,7 @@
   "description": "Makes ReasonML types more readable when they are logged to the console",
   "main": "src/sindex.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest src",
     "e2e": "jest e2e/index.spec.js --config e2e/jest.config.js",
     "dev": "webpack --mode=development --watch",
     "build": "webpack --mode=production",
