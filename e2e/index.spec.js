@@ -9,11 +9,12 @@ const tearUp = async () => {
   browser = await puppeteer.launch({
     devtools: true,
     slowMo: 500,
-    // chromeOptions: {
-    //   prefs: {
-    //     'devtools.preferences.customFormatters': true // Currently not possible
-    //   }
-    // },
+    chromeOptions: {
+      localState: { 'devtools.preferences.customFormatters': true } // Currently not possible
+      //   prefs: {
+      //     'devtools.preferences.customFormatters': true // Currently not possible
+      //   }
+    },
     headless: false, // extension are allowed only in head-full mode
     args: [
       `--disable-extensions-except=${extensionPath}`,
@@ -40,7 +41,7 @@ const tearUp = async () => {
   await devtoolsPage.goto(pageDebuggingUrl)
 
   // navigate to the page now so that we start capturing data in the debugger UI
-  await myPage.goto('http://example.com')
+  await myPage.goto('https://example.com')
 
   // the installed extension may open a new tab so make sure we select the debugger UI tab
   await devtoolsPage.bringToFront()
@@ -72,7 +73,7 @@ describe('Chrome Extension', () => {
   afterAll(tearDown)
 
   test('should load the extension and install formatters', async () => {
-    const page = await browser.newPage()
+    const page = (await browser.pages())[0]
     await page.goto('https://example.com')
     const devtoolsFormatters = await page.evaluate(
       () => window.devtoolsFormatters
@@ -84,7 +85,7 @@ describe('Chrome Extension', () => {
   })
 
   test('should pretty print Lists', async () => {
-    const page = await browser.newPage()
+    const page = (await browser.pages())[0]
     await page.goto('https://example.com')
 
     page.on('console', async msg => {
