@@ -1,4 +1,4 @@
-import flat from './flat'
+import { flat } from './flat'
 
 // Dummy log fn to debug the extensions
 // without using the console

@@ -1,17 +1,27 @@
 {
   "name": "reason-console-formatter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Makes ReasonML types more readable when they are logged to the console",
   "main": "src/sindex.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest src",
+    "e2e": "jest e2e/index.spec.js --config e2e/jest.config.js",
     "dev": "webpack --mode=development --watch",
     "build": "webpack --mode=production",
     "lint": "eslint .",
     "zip": "zip -r publish/reason-console-formatter-$npm_package_version.zip extension"
   },
-  "author": "",
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn e2e"
+    }
+  },
+  "author": "davesnx <dsnxmoreno@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davesnx/reason-console-formatter.git"
+  },
   "dependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
@@ -21,12 +31,15 @@
     "eslint-config-davesnx-rules": "^1.1.0",
     "global": "^4.4.0",
     "jest": "^24.9.0",
+    "jest-puppeteer": "^4.3.0",
+    "puppeteer": "^2.0.0",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
     "webpack-shell-plugin": "^0.5.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.4",
+    "husky": "^3.0.9",
     "terser-webpack-plugin": "^2.2.1",
     "webpack-extension-reloader": "^1.1.2"
   }
