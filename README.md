@@ -6,6 +6,8 @@ Transforms ReasonML types to a readable format when they are logged to the [Chro
 
 #### Status: ⚠️ ALPHA (only works with [Lists](https://reasonml.github.io/docs/en/list-and-array) & nested Lists) ⚠️
 
+[![CircleCI](https://circleci.com/gh/davesnx/reason-console-formatter/tree/master.svg?style=svg)](https://circleci.com/gh/davesnx/reason-console-formatter/tree/master)
+
 ![](/docs/demo.png)
 
 ### Use it
@@ -19,7 +21,6 @@ The Chrome extension only works if you **enable Custom Formatters** in the DevTo
 ### Step 2: Enable custom formatters
 
 ![](/docs/chrome-enable-custom-formatters.png)
-
 
 ## How it works
 
@@ -52,3 +53,4 @@ If you miss some type that you thing would be helpful, [let me know, by opening 
 ## Credit
 
 Based on [immutable-devtools](https://github.com/andrewdavey/immutable-devtools) and inspired by the awesome [cljs-devtools](https://github.com/binaryage/cljs-devtools).
+
