@@ -2,7 +2,6 @@ const puppeteer = require('puppeteer')
 const path = require('path')
 
 const extensionPath = path.join(__dirname, '..', 'extension')
-const fixtures = path.join(__dirname, '__fixtures__')
 
 let browser = null
 const tearUp = async () => {
