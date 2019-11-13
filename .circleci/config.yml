@@ -18,6 +18,10 @@ jobs:
       # Install your dependencies
       - run: yarn install
 
+      # - run:
+      #     name: Workaround for GoogleChrome/puppeteer#290
+      #     command: 'sh .circleci/install-puppeteer.sh'
+
       - save_cache:
           paths:
             - node_modules

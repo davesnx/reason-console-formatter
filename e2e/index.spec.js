@@ -18,7 +18,8 @@ const tearUp = async () => {
     headless: false, // extension are allowed only in head-full mode
     args: [
       `--disable-extensions-except=${extensionPath}`,
-      `--load-extension=${extensionPath}`
+      `--load-extension=${extensionPath}`,
+      '--no-sandbox'
     ]
   })
 
