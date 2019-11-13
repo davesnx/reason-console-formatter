@@ -84,7 +84,7 @@ describe('Chrome Extension', () => {
     expect(formattersLoaded).toBeTruthy()
   })
 
-  test('should pretty print Lists', async () => {
+  test.skip('should pretty print Lists', async () => {
     const page = (await browser.pages())[0]
     await page.goto('https://example.com')
 
