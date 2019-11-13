@@ -27,7 +27,6 @@ jobs:
           command: |
             sudo apt-get upgrade -y
       - run:
-
           name: Install Chrome headless dependencies
           working_directory: /
           command: |
@@ -52,7 +51,7 @@ jobs:
       - run: yarn test
 
       # Run end to end
-      - run: yarn e2e
+      - run: xvfb-run -a --server-args="-screen 0 1024x768x24" yarn e2e
 
       # Publish new version to chrome webstore
       - run: yarn webstore publish --extension-id jfgngkbfmnccnokfkajhloldhkgeking --source extension
