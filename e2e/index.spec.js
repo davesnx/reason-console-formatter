@@ -19,7 +19,8 @@ const tearUp = async () => {
       args: [
         `--disable-extensions-except=${extensionPath}`,
         `--load-extension=${extensionPath}`,
-        '--no-sandbox'
+        '--no-sandbox',
+        '--disable-setuid-sandbox'
       ]
     })
 
