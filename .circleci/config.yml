@@ -18,9 +18,9 @@ jobs:
       # Install your dependencies
       - run: yarn install
 
-      - run:
-          name: Workaround for GoogleChrome/puppeteer#290
-          command: 'sh .circleci/install-puppeteer.sh'
+      # - run:
+      #     name: Workaround for GoogleChrome/puppeteer#290
+      #     command: 'sh .circleci/install-puppeteer.sh'
 
       - save_cache:
           paths:
@@ -29,7 +29,7 @@ jobs:
 
       # build the extension if required
       # Run unit tests
-      # - run: yarn test
+      - run: yarn test
 
       # Run end to end
-      - run: yarn e2e
+      # - run: yarn e2e

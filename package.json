@@ -1,6 +1,6 @@
 {
   "name": "reason-console-formatter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Makes ReasonML types more readable when they are logged to the console",
   "main": "src/sindex.js",
   "scripts": {

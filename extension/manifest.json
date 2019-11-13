@@ -19,5 +19,5 @@
       "run_at": "document_start"
     }
   ],
-  "permissions": ["http://*/*", "http://*/*", "file://*/*"]
+  "permissions": ["activeTab"]
 }
