@@ -1,6 +1,6 @@
 {
   "dryRun": true,
-  "plugins: ['@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', '@semantic-release/github'],
+  "plugins": ["@semantic-release/commit-analyzer", "@semantic-release/release-notes-generator", "@semantic-release/github"],
   "verifyConditions": ["semantic-release-chrome", "@semantic-release/github"],
   "prepare": [
     {
