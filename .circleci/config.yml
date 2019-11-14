@@ -88,7 +88,7 @@ jobs:
       - run: yarn add puppeteer
 
       # Run end to end
-      - run: yarn e2e
+      - run: node e2e/debug.js
 
       # Publish new version to chrome webstore
       - run: yarn webstore publish --extension-id jfgngkbfmnccnokfkajhloldhkgeking --source extension
