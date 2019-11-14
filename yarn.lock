@@ -5910,6 +5910,11 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
+query-selector-shadow-dom@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/query-selector-shadow-dom/-/query-selector-shadow-dom-0.3.4.tgz#ae29ef490fe2803a5817b1873d62fb84f15211fe"
+  integrity sha512-J2LTYS4MNcYUooUECLY3Nv2HNbXPz3YxVsbz+N4HE+JnOMVOsSQHuefUXasXEscPxu7zx6Vl8CJOOX5oPx+5ww==
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "https://registry.npmjs.org/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"

@@ -51,15 +51,22 @@ const tearUp = async () => {
     // use F1 shortut to open DevTools Preferences
     await devtoolsPage.keyboard.down('F1')
 
-    await devtoolsPage.evaluate(() => {
-      return document
-        .querySelector('#-blink-dev-tools > div.vbox.flex-auto')
-        .shadowRoot.querySelector('div > div.vbox.flex-auto')
-        .shadowRoot.querySelector(
-          '#preferences-tab-content > div > div > div:nth-child(7) > p:nth-child(11) > span'
+    // makes the library available in evaluate functions which run within the browser context
+    await devtoolsPage.addScriptTag({
+      path: path.join(
+        __dirname,
+        '..',
+        'node_modules/query-selector-shadow-dom/dist/querySelectorShadowDom.js'
+      )
+    })
+
+    await devtoolsPage.evaluateHandle(() => {
+      var cutomFormatterInput = querySelectorShadowDom // eslint-disable-line
+        .querySelectorAllDeep(
+          '#-blink-dev-tools [name="Enable custom formatters"]'
         )
-        .shadowRoot.querySelector('[name="Enable custom formatters"]')
-        .click()
+
+      return cutomFormatterInput && cutomFormatterInput[0].click()
     })
   } catch (e) {
     console.error('There has been a problem boostraping puppeteer:')
