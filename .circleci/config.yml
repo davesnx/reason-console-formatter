@@ -85,7 +85,7 @@ jobs:
       - run: yarn test
 
       # Run end to end
-      - run: xvfb-run -a --server-args="-screen 0 1024x768x24" yarn e2e
+      - run: yarn e2e
 
       # Publish new version to chrome webstore
       - run: yarn webstore publish --extension-id jfgngkbfmnccnokfkajhloldhkgeking --source extension

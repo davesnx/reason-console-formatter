@@ -11,12 +11,11 @@ const tearUp = async () => {
       slowMo: 500,
       dumpio: true,
       chromeOptions: {
-        localState: { 'devtools.preferences.customFormatters': true } // Currently not possible
+        // localState: { 'devtools.preferences.customFormatters': true } // Currently not possible
         //   prefs: {
         //     'devtools.preferences.customFormatters': true // Currently not possible
         //   }
       },
-      executablePath: '/usr/bin/google-chrome',
       headless: false, // extension are allowed only in head-full mode
       args: [
         `--disable-extensions-except=${extensionPath}`,
