@@ -5,60 +5,73 @@ const extensionPath = path.join(__dirname, '..', 'extension')
 
 let browser = null
 const tearUp = async () => {
-  browser = await puppeteer.launch({
-    devtools: true,
-    slowMo: 500,
-    chromeOptions: {
-      localState: { 'devtools.preferences.customFormatters': true } // Currently not possible
-      //   prefs: {
-      //     'devtools.preferences.customFormatters': true // Currently not possible
-      //   }
-    },
-    headless: false, // extension are allowed only in head-full mode
-    args: [
-      `--disable-extensions-except=${extensionPath}`,
-      `--load-extension=${extensionPath}`,
-      '--no-sandbox'
-    ]
-  })
+  try {
+    browser = await puppeteer.launch({
+      devtools: true,
+      dumpio: true,
+      chromeOptions: {
+        // localState: { 'devtools.preferences.customFormatters': true } // Currently not possible
+        //   prefs: {
+        //     'devtools.preferences.customFormatters': true // Currently not possible
+        //   }
+      },
+      headless: false, // extension are allowed only in head-full mode
+      args: [
+        `--disable-extensions-except=${extensionPath}`,
+        `--load-extension=${extensionPath}`,
+        '--no-sandbox',
+        '--disable-setuid-sandbox'
+      ]
+    })
 
-  const wsEndpoint = browser.wsEndpoint()
+    const wsEndpoint = browser.wsEndpoint()
 
-  // the page I want to debug
-  const myPage = await browser.newPage()
-  const pageId = myPage.target()._targetId
+    // the page I want to debug
+    const myPage = await browser.newPage()
+    const pageId = myPage.target()._targetId
 
-  // use the host:port that Chromium provided, but replace the browser endpoint with the page to inspect
-  const pageTargeUrl = `${
-    wsEndpoint.replace('ws://', '').match(/.*(?=\/browser)/)[0]
-  }/page/${pageId}`
+    // use the host:port that Chromium provided, but replace the browser endpoint with the page to inspect
+    const pageTargeUrl = `${
+      wsEndpoint.replace('ws://', '').match(/.*(?=\/browser)/)[0]
+    }/page/${pageId}`
 
-  // generate the full debugging url for the page I want to inspect
-  const pageDebuggingUrl = `chrome-devtools://devtools/bundled/devtools_app.html?ws=${pageTargeUrl}`
+    // generate the full debugging url for the page I want to inspect
+    const pageDebuggingUrl = `chrome-devtools://devtools/bundled/devtools_app.html?ws=${pageTargeUrl}`
 
-  // open the debugging UI in a new tab that Puppeteer can interact with
-  const devtoolsPage = await browser.newPage()
-  await devtoolsPage.goto(pageDebuggingUrl)
+    // open the debugging UI in a new tab that Puppeteer can interact with
+    const devtoolsPage = await browser.newPage()
+    await devtoolsPage.goto(pageDebuggingUrl)
 
-  // navigate to the page now so that we start capturing data in the debugger UI
-  await myPage.goto('https://example.com')
+    // navigate to the page now so that we start capturing data in the debugger UI
+    await myPage.goto('https://example.com')
 
-  // the installed extension may open a new tab so make sure we select the debugger UI tab
-  await devtoolsPage.bringToFront()
+    // the installed extension may open a new tab so make sure we select the debugger UI tab
+    await devtoolsPage.bringToFront()
 
-  // use F1 shortut to open DevTools Preferences
-  await devtoolsPage.keyboard.down('F1')
+    // use F1 shortut to open DevTools Preferences
+    await devtoolsPage.keyboard.down('F1')
 
-  await devtoolsPage.evaluate(() => {
-    return document
-      .querySelector('#-blink-dev-tools > div.vbox.flex-auto')
-      .shadowRoot.querySelector('div > div.vbox.flex-auto')
-      .shadowRoot.querySelector(
-        '#preferences-tab-content > div > div > div:nth-child(7) > p:nth-child(11) > span'
+    // makes the library available in evaluate functions which run within the browser context
+    await devtoolsPage.addScriptTag({
+      path: path.join(
+        __dirname,
+        '..',
+        'node_modules/query-selector-shadow-dom/dist/querySelectorShadowDom.js'
       )
-      .shadowRoot.querySelector('[name="Enable custom formatters"]')
-      .click()
-  })
+    })
+
+    await devtoolsPage.evaluateHandle(() => {
+      var cutomFormatterInput = querySelectorShadowDom // eslint-disable-line
+        .querySelectorAllDeep(
+          '#-blink-dev-tools [name="Enable custom formatters"]'
+        )
+
+      return cutomFormatterInput && cutomFormatterInput[0].click()
+    })
+  } catch (e) {
+    console.error('There has been a problem boostraping puppeteer:')
+    console.error(e)
+  }
 }
 
 const tearDown = async () => {
@@ -84,7 +97,7 @@ describe('Chrome Extension', () => {
     expect(formattersLoaded).toBeTruthy()
   })
 
-  test('should pretty print Lists', async () => {
+  test.skip('should pretty print Lists', async () => {
     const page = (await browser.pages())[0]
     await page.goto('https://example.com')
 
