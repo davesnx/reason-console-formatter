@@ -1,6 +1,6 @@
 {
   "name": "reason-console-formatter",
-  "version": "0.0.6",
+  "version": "0.0.0-development",
   "description": "Makes ReasonML types more readable when they are logged to the console",
   "main": "src/sindex.js",
   "scripts": {
@@ -9,13 +9,13 @@
     "dev": "webpack --mode=development --watch",
     "build": "webpack --mode=production",
     "lint": "eslint .",
-    "zip": "zip -r publish/reason-console-formatter-$npm_package_version.zip extension"
+    "semantic-release": "semantic-release"
   },
   "author": "davesnx <dsnxmoreno@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davesnx/reason-console-formatter.git"
+    "url": "https://github.com/davesnx/reason-console-formatter.git"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
@@ -37,6 +37,8 @@
     "copy-webpack-plugin": "^5.0.4",
     "husky": "^3.0.9",
     "query-selector-shadow-dom": "^0.3.4",
+    "semantic-release": "^15.13.30",
+    "semantic-release-chrome": "^1.1.1",
     "terser-webpack-plugin": "^2.2.1",
     "webpack-extension-reloader": "^1.1.2"
   }
