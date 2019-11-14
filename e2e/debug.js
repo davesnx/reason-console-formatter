@@ -18,6 +18,7 @@ const path = require('path')
     })
   } catch (e) {
     console.log(e)
+    process.exit(1)
   }
 
   console.log('browser starting')
