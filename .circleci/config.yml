@@ -81,6 +81,8 @@ jobs:
             - ~/.cache/yarn
 
       # build the extension if required
+      - run: yarn build
+
       # Run unit tests
       - run: yarn test
 
@@ -91,4 +93,4 @@ jobs:
       - run: node e2e/debug.js
 
       # Publish new version to chrome webstore
-      - run: yarn webstore publish --extension-id jfgngkbfmnccnokfkajhloldhkgeking --source extension
+      # - run: yarn webstore publish --extension-id jfgngkbfmnccnokfkajhloldhkgeking --source extension

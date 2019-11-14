@@ -9,8 +9,8 @@ const path = require('path')
       dumpio: true,
       headless: false,
       args: [
-        // `--disable-extensions-except=${extensionPath}`,
-        // `--load-extension=${extensionPath}`,
+        `--disable-extensions-except=${extensionPath}`,
+        `--load-extension=${extensionPath}`,
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage'
