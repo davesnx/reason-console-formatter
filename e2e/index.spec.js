@@ -9,6 +9,7 @@ const tearUp = async () => {
     browser = await puppeteer.launch({
       devtools: true,
       slowMo: 500,
+      dumpio: true,
       chromeOptions: {
         localState: { 'devtools.preferences.customFormatters': true } // Currently not possible
         //   prefs: {
