@@ -7,8 +7,7 @@ const log = stuff => { // eslint-disable-line
   el.innerHTML = JSON.stringify(stuff) + '<br/>' + el.innerHTML
 }
 
-const isList = data => {
-  // Very unrealistic way to detect if its a ReasonML List
+export const isList = data => {
   return Array.isArray(data) && Array.isArray(data[1])
 }
 
