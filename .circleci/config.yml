@@ -86,9 +86,6 @@ jobs:
       # Run unit tests
       - run: yarn test
 
-      # Install puppetter
-      - run: yarn add puppeteer
-
       # Run end to end
       - run: node e2e/debug.js
 
