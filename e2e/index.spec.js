@@ -7,7 +7,7 @@ let browser = null
 const tearUp = async () => {
   try {
     browser = await puppeteer.launch({
-      devtools: true,
+      devtools: false,
       dumpio: true,
       chromeOptions: {
         // localState: { 'devtools.preferences.customFormatters': true } // Currently not possible
@@ -66,10 +66,9 @@ const tearUp = async () => {
           '#-blink-dev-tools [name="Enable custom formatters"]'
         )
 
-      return cutomFormatterInput && cutomFormatterInput[0].click()
+      return cutomFormatterInput[0].click()
     })
   } catch (e) {
-    console.error('There has been a problem boostraping puppeteer:')
     console.error(e)
   }
 }
@@ -95,30 +94,31 @@ describe('Chrome Extension', () => {
 
     expect(devtoolsFormatters).toHaveLength(1)
     expect(formattersLoaded).toBeTruthy()
+
+    // TODO: await page.close()
   })
 
-  test.skip('should pretty print Lists', async () => {
+  test.skip('should pretty print Lists', async done => {
     const page = (await browser.pages())[0]
-    await page.goto('https://example.com')
 
     page.on('console', async msg => {
-      const output = await msg.args()[0]
-      console.log(output._remoteObject.preview.properties)
+      try {
+        const output = await msg.args()[0]
+        const resultHandle = await page.evaluate(out => out, output)
+        expect(resultHandle).toEqual([1, 2, 3, 4, 5])
+        done()
+      } catch (e) {
+        console.log(e)
+      }
     })
 
+    await page.goto('https://example.com')
     await page.addScriptTag({
       content: `
-        console.log(
-          /* :: */ [
-            1,
-            /* :: */ [2, /* :: */ [3, /* :: */ [4, /* :: */ [5, /* [] */ 0]]]]
-          ]
-        )
+        console.log([1, [2, [3, [4, [5, 0]]]]]);
+        debugger;
       `
     })
-    // const devtoolsFormatters = await page.evaluate(
-    //   () => window.devtoolsFormatters
-    // )
-    // expect(devtoolsFormatters).toHaveLength(1)
+    await page.waitFor(4000)
   })
 })
