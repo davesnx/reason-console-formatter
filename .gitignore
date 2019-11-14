@@ -5,3 +5,4 @@ extension/content-script.js
 *.zip
 extension/*
 **/.cache/*
+*.log
