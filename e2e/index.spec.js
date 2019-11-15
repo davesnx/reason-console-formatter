@@ -98,6 +98,7 @@ describe('Chrome Extension', () => {
     // TODO: await page.close()
   })
 
+  // https://stackoverflow.com/questions/58827692/how-to-evaluate-a-jshandle-from-consolemessages-in-puppetter
   test.skip('should pretty print Lists', async done => {
     const page = (await browser.pages())[0]
 
