@@ -45,16 +45,6 @@ const titleStyles = `
   word-wrap: break-word;
 `
 
-function renderTitleList(name, list) {
-  return [
-    'span',
-    {
-      style: titleStyles
-    },
-    ['span', {}, `${name}[${list.length}]`]
-  ]
-}
-
 function renderInlineFullList(name, list) {
   return [
     'span',
