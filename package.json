@@ -19,13 +19,13 @@
     "url": "https://github.com/davesnx/reason-console-formatter.git"
   },
   "dependencies": {
-    "babel-jest": "^24.9.0",
     "global": "^4.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "babel-loader": "^8.0.6",
+    "babel-jest": "^24.9.0",
     "bs-platform": "^5.2.1",
     "chrome-webstore-upload-cli": "^1.2.0",
     "copy-webpack-plugin": "^5.0.4",
