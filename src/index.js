@@ -3,7 +3,7 @@ import window from 'global/window'
 
 window.formattersLoaded = false
 
-const install = () => {
+export default () => {
   // Don't install more than once.
   if (window.formattersLoaded === true) {
     return
@@ -13,5 +13,3 @@ const install = () => {
   window.devtoolsFormatters.push(ListFormatter)
   window.formattersLoaded = true
 }
-
-install()
