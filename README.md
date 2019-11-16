@@ -39,6 +39,8 @@ You need to **enable Custom Formatters** in the DevTools settings in order to ha
 
 ![](/docs/chrome-enable-custom-formatters.png)
 
+Note: You might need to refresh the page first time you open Console panel with existing logs - custom formatters are applied only to newly printed console messages.
+
 ## How it works
 
 Detects at runtime what kind of data structures are you logging into the console and maps them to ReasonML types.
