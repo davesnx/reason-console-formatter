@@ -7,7 +7,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'extension')
+    path: path.resolve(__dirname, 'extension'),
+    libraryTarget: 'var'
   },
   module: {
     rules: [

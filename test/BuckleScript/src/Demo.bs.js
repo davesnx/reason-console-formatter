@@ -2,7 +2,7 @@
 
 import * as IndexJs from "./../../../src/index.js";
 
-function enableConsoleFormatter(prim) {
+function install(prim) {
   IndexJs.default();
   return /* () */0;
 }
@@ -77,7 +77,7 @@ var nestedList = /* :: */[
 console.log("list(list(int))", nestedList);
 
 export {
-  enableConsoleFormatter ,
+  install ,
   listA ,
   listB ,
   listC ,

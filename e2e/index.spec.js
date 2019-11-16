@@ -99,7 +99,7 @@ describe('Chrome Extension', () => {
   })
 
   // https://stackoverflow.com/questions/58827692/how-to-evaluate-a-jshandle-from-consolemessages-in-puppetter
-  test.skip('should pretty print Lists', async done => {
+  test.skip('should pretty print Lists', async () => {
     const page = (await browser.pages())[0]
 
     page.on('console', async msg => {
@@ -107,7 +107,6 @@ describe('Chrome Extension', () => {
         const output = await msg.args()[0]
         const resultHandle = await page.evaluate(out => out, output)
         expect(resultHandle).toEqual([1, 2, 3, 4, 5])
-        done()
       } catch (e) {
         console.log(e)
       }
