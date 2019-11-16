@@ -8571,10 +8571,10 @@ schema-utils@^2.5.0:
     ajv "^6.10.2"
     ajv-keywords "^3.4.1"
 
-semantic-release-chrome@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/semantic-release-chrome/-/semantic-release-chrome-1.1.1.tgz#a4a62aeead25bce1b5d87485b01e02d81ccb7799"
-  integrity sha512-FTmAWGypHDLiDseVYKpxLzfOy8IiEnULbHhJCPg4268OVc5KKTJTLeMSF7VrAU36Kj4CwbKyMdVxxMlEXgBV6g==
+semantic-release-chrome@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/semantic-release-chrome/-/semantic-release-chrome-1.1.2.tgz#e78deea8c5cab8f02aaf8ff2565452a3e2948420"
+  integrity sha512-+/ytsDVs4eCS23PSns4ttEk8sHaHPR/GKHVJZgCmSG3UcYg1Oc8T4Pn6G+jhoKKjkfyh/nz4Q4uDVyFib2m/pQ==
   dependencies:
     "@semantic-release/error" "2.2.0"
     aggregate-error "3.0.0"

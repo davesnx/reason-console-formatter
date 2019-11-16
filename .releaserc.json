@@ -21,6 +21,14 @@
           "path": "extension.zip"
         }
       ]
+    },
+    {
+      "path": "@semantic-release/npm",
+      "assets": [
+        {
+          "path": "extension.zip"
+        }
+      ]
     }
   ]
 }

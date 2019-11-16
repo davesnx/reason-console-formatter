@@ -23,8 +23,8 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "babel-loader": "^8.0.6",
     "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
     "bs-platform": "^5.2.1",
     "chrome-webstore-upload-cli": "^1.2.0",
     "copy-webpack-plugin": "^5.0.4",
@@ -36,7 +36,7 @@
     "puppeteer": "^2.0.0",
     "query-selector-shadow-dom": "^0.3.4",
     "semantic-release": "^15.13.30",
-    "semantic-release-chrome": "^1.1.1",
+    "semantic-release-chrome": "^1.1.2",
     "terser-webpack-plugin": "^2.2.1",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
