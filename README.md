@@ -2,17 +2,34 @@
 
 Transforms ReasonML types to a readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html).
 
-#### Install [https://chrome.google.com/webstore/detail/reasonml-formatter](https://chrome.google.com/webstore/detail/reasonml-formatter/jfgngkbfmnccnokfkajhloldhkgeking)
-
-#### Status: ⚠️ ALPHA (only works with [Lists](https://reasonml.github.io/docs/en/list-and-array) & nested Lists) ⚠️
+#### Status: ⚠️ Doesn't work with all the types. Only [Lists](https://reasonml.github.io/docs/en/list-and-array) & nested Lists, for now 🤘
 
 [![CircleCI](https://circleci.com/gh/davesnx/reason-console-formatter/tree/master.svg?style=svg)](https://circleci.com/gh/davesnx/reason-console-formatter/tree/master)
 
 ![](/docs/demo.png)
 
-### Use it
+### Install as a module (recomended)
+You can install it on your application or your library via npm/yarn.
 
-The Chrome extension only works if you **enable Custom Formatters** in the DevTools settings.
+```bash
+npm install reason-console-formatter --dev
+# or yarn
+yarn add reason-console-formatter --dev
+```
+
+```ocaml
+[@bs.module "reason-console-formatter"]
+external install: unit => unit = "default";
+
+install();
+```
+
+### Install as a chrome extension
+Add it to your Chrome: [https://chrome.google.com/webstore/detail/reasonml-formatter](https://chrome.google.com/webstore/detail/reasonml-formatter/jfgngkbfmnccnokfkajhloldhkgeking)
+
+### Usage
+
+You need to **enable Custom Formatters** in the DevTools settings in order to have this working.
 
 ### Step 1: Open DevTools settings
 
@@ -21,6 +38,8 @@ The Chrome extension only works if you **enable Custom Formatters** in the DevTo
 ### Step 2: Enable custom formatters
 
 ![](/docs/chrome-enable-custom-formatters.png)
+
+Note: You might need to refresh the page first time you open Console panel with existing logs - custom formatters are applied only to newly printed console messages.
 
 ## How it works
 
