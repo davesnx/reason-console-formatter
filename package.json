@@ -2,7 +2,7 @@
   "name": "reason-console-formatter",
   "version": "0.0.0-development",
   "description": "Makes ReasonML types more readable when they are logged to the console",
-  "main": "src/sindex.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "jest src",
     "e2e": "jest e2e/index.spec.js --config e2e/jest.config.js",
@@ -18,28 +18,34 @@
     "url": "https://github.com/davesnx/reason-console-formatter.git"
   },
   "dependencies": {
+    "global": "^4.4.0"
+  },
+  "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "babel-loader": "^8.0.6",
+    "babel-jest": "^24.9.0",
     "bs-platform": "^5.2.1",
+    "chrome-webstore-upload-cli": "^1.2.0",
+    "copy-webpack-plugin": "^5.0.4",
     "eslint": "^6.5.1",
     "eslint-config-davesnx-rules": "^1.1.0",
-    "global": "^4.4.0",
+    "husky": "^3.0.9",
     "jest": "^24.9.0",
     "jest-puppeteer": "^4.3.0",
     "puppeteer": "^2.0.0",
-    "webpack": "^4.41.1",
-    "webpack-cli": "^3.3.9",
-    "webpack-shell-plugin": "^0.5.0"
-  },
-  "devDependencies": {
-    "chrome-webstore-upload-cli": "^1.2.0",
-    "copy-webpack-plugin": "^5.0.4",
-    "husky": "^3.0.9",
     "query-selector-shadow-dom": "^0.3.4",
     "semantic-release": "^15.13.30",
     "semantic-release-chrome": "^1.1.1",
     "terser-webpack-plugin": "^2.2.1",
-    "webpack-extension-reloader": "^1.1.2"
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-extension-reloader": "^1.1.2",
+    "webpack-shell-plugin": "^0.5.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   }
 }
