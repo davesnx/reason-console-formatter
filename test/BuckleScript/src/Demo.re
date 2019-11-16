@@ -1,8 +1,8 @@
-[@bs.module "./../../../src/index.js"]
-external install: unit => unit = "default";
+/* [@bs.module "./../../../src/index.js"]
+   external install: unit => unit = "default";
 
-install();
-
+   install();
+    */
 /* module Person = {
      type details = {
        name: string,

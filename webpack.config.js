@@ -4,9 +4,9 @@ const path = require('path')
 
 module.exports = {
   devtool: process.env.NODE_ENV !== 'production' ? '#inline-source-map' : '',
-  entry: './src/index.js',
+  entry: './src/load.js',
   output: {
-    filename: 'index.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'extension'),
     libraryTarget: 'var'
   },

@@ -4,7 +4,7 @@ const template = fs
   .readFileSync('./scripts/content-script-template.js')
   .toString()
 
-const bundle = fs.readFileSync('./extension/index.js').toString()
+const bundle = fs.readFileSync('./extension/bundle.js').toString()
 
 const contentScript = template.replace(
   '/* SCRIPT_TEXT_CONTENT */',
