@@ -10,9 +10,12 @@
   ],
   "publish": [
     {
-      "path": "semantic-release-chrome",
-      "asset": "extension.zip",
-      "extensionId": "jfgngkbfmnccnokfkajhloldhkgeking"
+      "path": "@semantic-release/npm",
+      "assets": [
+        {
+          "path": "extension.zip"
+        }
+      ]
     },
     {
       "path": "@semantic-release/github",
@@ -23,12 +26,9 @@
       ]
     },
     {
-      "path": "@semantic-release/npm",
-      "assets": [
-        {
-          "path": "extension.zip"
-        }
-      ]
+      "path": "semantic-release-chrome",
+      "asset": "extension.zip",
+      "extensionId": "jfgngkbfmnccnokfkajhloldhkgeking"
     }
   ]
 }
