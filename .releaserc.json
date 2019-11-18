@@ -1,6 +1,6 @@
 {
-  "plugins": ["@semantic-release/commit-analyzer", "@semantic-release/release-notes-generator", "@semantic-release/github", "@semantic-release/npm"],
-  "verifyConditions": ["semantic-release-chrome", "@semantic-release/github", "@semantic-release/npm"],
+  "plugins": ["@semantic-release/commit-analyzer", "@semantic-release/release-notes-generator", "@semantic-release/github", "@semantic-release/npm", "semantic-release-chrome"],
+  "verifyConditions": ["semantic-release-chrome", "@semantic-release/github", "@semantic-release/npm", "semantic-release-chrome"],
   "prepare": [
     {
       "path": "semantic-release-chrome",
