@@ -61,13 +61,13 @@ If you miss some type that you thing would be helpful, [let me know, by opening 
 ## Development
 
 1. Clone this repo
-<!-- Remove those steps ^^ -->
-2. Go to chrome extensions chrome://extensions
-3. Click on load unpacked extension and select the "/extension" directory of the cloned repo
-4. `npm install`
-5. `npm run dev`
-6. Open "/test/index.html" (`open /test/index.html`) to check the List implementation
-7. Open "test/bs-demo/README.md and follow the steps there!
+2. `$ yarn` - Install dependencies
+3. `$ yarn dev` - Compile
+3. `$ cd test/BuckleScript` - Go to a demo page
+4. `$ yarn` - Install dependencies of the demo
+5. `(new tab) $ yarn start` - Start the server
+6. `(new tab) $ yarn watch` - Compile Reason code
+7. Open "localhost:1234"
 
 ## Credit
 
