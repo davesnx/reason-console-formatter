@@ -26,7 +26,6 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "bs-platform": "^5.2.1",
-    "chrome-webstore-upload-cli": "^1.2.0",
     "copy-webpack-plugin": "^5.0.4",
     "eslint": "^6.5.1",
     "eslint-config-davesnx-rules": "^1.1.0",
