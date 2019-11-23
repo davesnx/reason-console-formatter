@@ -6,3 +6,5 @@ extension/content-script.js
 extension/*
 **/.cache/*
 *.log
+
+extension/manifest.json
