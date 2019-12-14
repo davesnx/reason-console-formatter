@@ -17,7 +17,7 @@ npm install reason-console-formatter --dev
 yarn add reason-console-formatter --dev
 ```
 
-```ocaml
+```reason
 [@bs.module "reason-console-formatter"]
 external install: unit => unit = "default";
 
