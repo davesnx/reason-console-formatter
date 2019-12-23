@@ -50,7 +50,7 @@ Right now, BuckleScript has a debug flag (`"-bs-g"`) that labels some of the typ
 ![](/docs/future-demo.png)
 > This is the output of the tests, the future of this extension. Right now, you can take a look at `test/bs-demo/README.md` to get a better idea on what's keeping us to implement that! Thanks! 😄
 
-Right now `bs-g`, aside from the labeling does a little bit of formatting as well. The down-site is that it contains a lot of bugs and isn't something easy to refactor. [@bobzhang](https://github.com/bobzhang) said that this part of Bucklescript's source code is a mess.
+Right now `bs-g`, aside from the labeling does a little bit of formatting as well. The down-site is that it contains a lot of bugs and isn't something easy to extend neither reason about.
 
 The idea is to create a extension that delivers a great developer experience that could replace at some point the flag and extract that debug logic from BuckleScript.
 
