@@ -1,8 +1,8 @@
+#### Status: The effort on this extension got merged into BuckleScript (now called ReScript-compiler). Check their [website](https://rescript-lang.org/docs/manual/latest/build-configuration)
+
 # ReasonML Console Formatter
 
 Transforms ReasonML types to a readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html).
-
-#### Status: ⚠️ Doesn't work with all the types. Only [Lists](https://reasonml.github.io/docs/en/list-and-array) & nested Lists, for now 🤘
 
 [![CircleCI](https://circleci.com/gh/davesnx/reason-console-formatter/tree/master.svg?style=svg)](https://circleci.com/gh/davesnx/reason-console-formatter/tree/master)
 
