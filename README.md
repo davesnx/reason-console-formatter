@@ -1,4 +1,6 @@
-## ⚠️ Status: The effort on this extension got merged into BuckleScript in [here](https://github.com/rescript-lang/rescript-compiler/pull/4340) (now called ReScript-compiler). Check their [website](https://rescript-lang.org/docs/manual/latest/build-configuration) for more information.
+⚠️ Status: The core effort of this extension got merged into BuckleScript itself in [here](https://github.com/rescript-lang/rescript-compiler/pull/4340) (now called ReScript) and it's not needed/useful anymore.
+
+---
 
 #### ReasonML Console Formatter
 
