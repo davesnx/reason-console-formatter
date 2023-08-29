@@ -1,8 +1,7 @@
-⚠️ Status: The core effort of this extension got merged into BuckleScript itself in [here](https://github.com/rescript-lang/rescript-compiler/pull/4340) (now called ReScript) and it's not needed/useful anymore.
+### ReasonML Console Formatter
 
----
-
-#### ReasonML Console Formatter
+> ⚠️ **Status**: The core effort of this extension got merged into BuckleScript
+> itself in [here](https://github.com/rescript-lang/rescript-compiler/pull/4340) (now called ReScript) and it's not needed/useful anymore.
 
 Transforms ReasonML types to a readable format when they are logged to the [Chrome console](https://developers.google.com/web/tools/chrome-devtools/console/?hl=es) or [NodeJS console](https://nodejs.org/api/console.html).
 
